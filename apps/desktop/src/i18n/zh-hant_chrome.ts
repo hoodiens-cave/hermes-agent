@@ -493,6 +493,8 @@ export const zhHantChrome = {
     closeOthers: '關閉其他',
     closeToRight: '關閉右側',
     closeAll: '全部關閉',
+    openTab: '開啟分頁',
+    noTabsToOpen: '沒有可開啟的分頁',
     newSessionTab: '新增工作階段分頁',
     newTab: '新增分頁',
     pluginDisabled: pluginId => `外掛「${pluginId}」已停用`,

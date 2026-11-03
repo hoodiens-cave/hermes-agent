@@ -4196,6 +4196,8 @@ export const zhOverrides = {
     closeOthers: '关闭其他',
     closeToRight: '关闭右侧',
     closeAll: '全部关闭',
+    openTab: '打开标签页',
+    noTabsToOpen: '没有可打开的标签页',
     newSessionTab: '新建会话标签',
     newTab: '新建标签页',
     pluginDisabled: pluginId => `插件“${pluginId}”已禁用`,

@@ -4362,6 +4362,8 @@ export const en: Translations = {
     closeOthers: 'Close others',
     closeToRight: 'Close to the right',
     closeAll: 'Close all',
+    openTab: 'Open tab',
+    noTabsToOpen: 'No tabs to open',
     newSessionTab: 'New session tab',
     newTab: 'New tab',
     pluginDisabled: pluginId => `Plugin "${pluginId}" disabled`,

@@ -3193,6 +3193,8 @@ export const jaOverrides = {
     closeOthers: '他を閉じる',
     closeToRight: '右側を閉じる',
     closeAll: 'すべて閉じる',
+    openTab: 'タブを開く',
+    noTabsToOpen: '開けるタブはありません',
     newSessionTab: '新しいセッションタブ',
     newTab: '新しいタブ',
     pluginDisabled: pluginId => `プラグイン「${pluginId}」を無効化しました`,

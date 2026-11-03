@@ -57,6 +57,7 @@ import {
   workspaceScopeKey
 } from '../../workspace-scope'
 import type { DropPosition, GroupNode } from '../model'
+import { reopenablePanes } from '../reopenable-panes'
 import {
   $dropHint,
   $hiddenTreePanes,
@@ -184,6 +185,7 @@ function ZoneMenu({
           onCloseOthers: () => closeOtherTreeTabs(targetId),
           onCloseToRight: () => closeTreeTabsToRight(targetId)
         })}
+        <OpenTabSubmenu kit={kit} />
         {(() => {
           // Show/hide rows for the zone's hide-only chrome tabs (sessions /
           // Bots) — their Close replacement. Resolved when the menu OPENS,
@@ -250,6 +252,27 @@ function ZoneMenu({
     <ActionsContextMenu allowOpen={allowOpen} contentClassName="w-max min-w-40" items={items}>
       {children}
     </ActionsContextMenu>
+  )
+}
+
+/** "Open tab" — the panes that can come back (closed, minimized, hidden or
+ *  behind a sibling), so a closed tab is never only a layout reset away. */
+function OpenTabSubmenu({ kit }: { kit: MenuKit }) {
+  const { t } = useI18n()
+  const panes = reopenablePanes()
+
+  return (
+    <kit.Sub>
+      <kit.SubTrigger>
+        <Codicon name="add" size="0.875rem" />
+        <span>{t.zones.openTab}</span>
+      </kit.SubTrigger>
+      <kit.SubContent>
+        {panes.length === 0
+          ? renderActionItem(kit, { disabled: true, label: t.zones.noTabsToOpen, onSelect: () => undefined })
+          : panes.map(pane => renderActionItem(kit, { key: `open-tab-${pane.id}`, label: pane.title, onSelect: pane.open }))}
+      </kit.SubContent>
+    </kit.Sub>
   )
 }
 

@@ -4768,6 +4768,8 @@ export const esOverrides = {
     closeOthers: 'Cerrar las demás',
     closeToRight: 'Cerrar las de la derecha',
     closeAll: 'Cerrar todo',
+    openTab: 'Abrir pestaña',
+    noTabsToOpen: 'No hay pestañas para abrir',
     newSessionTab: 'Nueva pestaña de sesión',
     newTab: 'Nueva pestaña',
     pluginDisabled: pluginId => `Plugin "${pluginId}" desactivado`,

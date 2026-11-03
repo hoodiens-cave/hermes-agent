@@ -4783,6 +4783,8 @@ export const deOverrides = {
     closeOthers: 'Andere schließen',
     closeToRight: 'Nach rechts schließen',
     closeAll: 'Alle schließen',
+    openTab: 'Tab öffnen',
+    noTabsToOpen: 'Keine Tabs zum Öffnen',
     newSessionTab: 'Neuer Session-Tab',
     newTab: 'Neuer Tab',
     pluginDisabled: pluginId => `Plugin "${pluginId}" deaktiviert`,

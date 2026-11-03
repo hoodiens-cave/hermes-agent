@@ -3441,6 +3441,8 @@ export const ruOverrides = {
     closeOthers: 'Закрыть другие',
     closeToRight: 'Закрыть справа',
     closeAll: 'Закрыть все',
+    openTab: 'Открыть вкладку',
+    noTabsToOpen: 'Нет вкладок для открытия',
     newSessionTab: 'Вкладка нового сеанса',
     pluginDisabled: pluginId => `Плагин «${pluginId}» отключён`,
     pluginDisabledBody: 'Включите его снова в Возможности → Плагины, чтобы вернуть панель.',

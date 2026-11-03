@@ -3809,6 +3809,8 @@ export interface Translations extends NoticeTranslations {
     closeOthers: string
     closeToRight: string
     closeAll: string
+    openTab: string
+    noTabsToOpen: string
     newSessionTab: string
     newTab: string
     pluginDisabled: (pluginId: string) => string

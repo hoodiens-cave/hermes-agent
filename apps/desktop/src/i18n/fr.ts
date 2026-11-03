@@ -4793,6 +4793,8 @@ export const frOverrides = {
     closeOthers: 'Fermer les autres',
     closeToRight: 'Fermer à droite',
     closeAll: 'Tout fermer',
+    openTab: 'Ouvrir un onglet',
+    noTabsToOpen: 'Aucun onglet à ouvrir',
     newSessionTab: 'Nouvel onglet de session',
     newTab: 'Nouvel onglet',
     pluginDisabled: pluginId => `Plugin « ${pluginId} » désactivé`,
