@@ -94,7 +94,7 @@ def test_cold_gateway_serves_an_installed_pack_before_any_agent_exists(tmp_path,
         "provides_locales": [{"id": "ko", "endonym": "한국어"}]}, allow_unicode=True), encoding="utf-8")
     (plugin / "locales" / "ko.yaml").write_text("{}\n", encoding="utf-8")
     (plugin / "locales" / "ko.desktop.yaml").write_text(
-        yaml.safe_dump({"settings": {"appearance": {"modelPricingTitle": "모델 가격"}}}, allow_unicode=True),
+        yaml.safe_dump({"settings": {"appearance": {"modelPricingTitle": "모델 요금"}}}, allow_unicode=True),
         encoding="utf-8")
     (home / "config.yaml").write_text(yaml.safe_dump({"plugins": {"enabled": ["hermes-lang-ko"]}}), encoding="utf-8")
     monkeypatch.setenv("HOME", str(tmp_path / "os-home"))
@@ -108,7 +108,7 @@ def test_cold_gateway_serves_an_installed_pack_before_any_agent_exists(tmp_path,
         ko = next(row for row in _call(server, "i18n.languages", {})["result"]["languages"] if row["id"] == "ko")
         assert ko["source"] == "plugin:hermes-lang-ko" and "desktop" in ko["surfaces"]
         desktop = _call(server, "i18n.catalog", {"lang": "ko", "surface": "desktop"})["result"]
-        assert desktop["messages"] == {"settings.appearance.modelPricingTitle": "모델 가격"}
+        assert desktop["messages"]["settings.appearance.modelPricingTitle"] == "모델 요금"  # the pack beats bundled
     finally:
         manager.unload()
 
@@ -126,8 +126,8 @@ def test_failed_plugin_discovery_still_answers_with_bundled_languages(tmp_path, 
     i18n.reset_language_cache()
 
     languages = _call(server, "i18n.languages", {})["result"]["languages"]
-    assert {"id": "ko", "endonym": "한국어", "rtl": False, "source": "bundled", "surfaces": ["core", "tui"]} in languages
-    assert _call(server, "i18n.catalog", {"lang": "ko", "surface": "desktop"})["result"]["messages"] == {}
+    assert {"id": "ja", "endonym": "日本語", "rtl": False, "source": "bundled", "surfaces": ["core", "tui"]} in languages
+    assert _call(server, "i18n.catalog", {"lang": "ja", "surface": "desktop"})["result"]["messages"] == {}
 
 
 @pytest.mark.parametrize("method", ["i18n.languages", "i18n.catalog"])
