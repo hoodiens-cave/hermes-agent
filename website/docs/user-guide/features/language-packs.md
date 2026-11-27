@@ -149,4 +149,5 @@ on the next start or the next `display.language` change.
 - **Language listed but the TUI/Desktop is still English** — the pack has no `.tui.yaml` /
   `.desktop.yaml`; those surfaces render English plus whatever the pack provides. For the 16 bundled
   languages the TUI ships its own `locales/<lang>.tui.yaml` in the Hermes tree (the Desktop bundles
-  its translations in-app), so a pack for one of those only needs the keys it wants to override.
+  its translations in-app, and Korean's ship as `locales/ko.desktop.yaml`, served by the gateway), so a
+  pack for one of those only needs the keys it wants to override.

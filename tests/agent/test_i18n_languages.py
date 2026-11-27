@@ -56,18 +56,18 @@ def test_language_surfaces_report_each_layer(monkeypatch, tmp_path):
     i18n.reset_language_cache()
     try:
         surfaces = i18n.language_surfaces()
-        assert surfaces["ko"] == ("core", "tui")
+        assert surfaces["fr"] == ("core", "tui")
         assert surfaces["en"] == ("core",)
 
-        (home / "locales" / "ko.desktop.yaml").write_text(yaml.safe_dump({"settings": {"title": "설정"}}),
+        (home / "locales" / "fr.desktop.yaml").write_text(yaml.safe_dump({"settings": {"title": "Paramètres"}}),
                                                          encoding="utf-8")
         i18n_layers.register_pack("pl", "desktop", {"settings.title": "Ustawienia"}, source="plugin:hermes-lang-pl")
         i18n.reset_language_cache()
         surfaces = i18n.language_surfaces()
-        assert surfaces["ko"] == ("core", "tui", "desktop")
+        assert surfaces["fr"] == ("core", "tui", "desktop")
         assert surfaces["pl"] == ("desktop",)
         rows = {row["id"]: row for row in i18n.language_options()}
-        assert rows["ko"]["surfaces"] == ["core", "tui", "desktop"]
+        assert rows["fr"]["surfaces"] == ["core", "tui", "desktop"]
         assert rows["pl"]["surfaces"] == ["desktop"]
         assert rows["ja"]["surfaces"] == ["core", "tui"]
 
